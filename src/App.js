@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Anchor } from "antd";
 
-function App() {
+const App = () => {
+  const onChange = (link) => {
+    console.log("Anchor:OnChange", link);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Anchor
+        affix={true}
+        onChange={onChange}
+        items={[
+          {
+            key: "1",
+            href: "#components-anchor-demo-basic",
+            title: "Basic demo",
+          },
+          {
+            key: "2",
+            href: "#components-anchor-demo-static",
+            title: "Static demo",
+          },
+          {
+            key: "3",
+            href: "#api",
+            title: "API",
+            children: [
+              {
+                key: "4",
+                href: "#anchor-props",
+                title: "Anchor Props",
+              },
+              {
+                key: "5",
+                href: "#link-props",
+                title: "Link Props",
+              },
+            ],
+          },
+        ]}
+      />
+    </>
   );
-}
+};
 
 export default App;
